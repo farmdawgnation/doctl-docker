@@ -11,6 +11,7 @@ ENV DOCTL_VERSION 1.18.0
 ADD https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz /doctl.tar.gz
 
 RUN tar -xf /doctl.tar.gz && \
-  rm /doctl.tar.gz
+  rm /doctl.tar.gz && \
+  mv /doctl /usr/local/bin/
 
-ENTRYPOINT ["/doctl"]
+ENTRYPOINT ["/usr/local/bin/doctl"]
